@@ -1,4 +1,8 @@
-with 'Attean::API::Store', 'Attean::API::CostPlanner';
+package Web::Access::Control::QueryPlanner;
+
+use Moo;
+extends 'Attean::QueryPlanner';
+with 'Web::Access::Control::AccessPlan';
 
 sub cost_for_plan {
   my $self = shift;
@@ -10,3 +14,5 @@ sub cost_for_plan {
   }
   return;
 }
+
+1;
