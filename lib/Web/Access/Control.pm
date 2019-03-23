@@ -7,6 +7,9 @@ package Web::Access::Control;
 our $AUTHORITY = 'cpan:KJETILK';
 our $VERSION   = '0.001';
 
+has checkAccess => (is => 'rw', default => 0);
+
+
 1;
 
 __END__
