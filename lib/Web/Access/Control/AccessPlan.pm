@@ -15,7 +15,7 @@ around 'access_plans' => sub {
   my @plans = $orig->(@params);
   foreach my $plan (@plans) {
 	 if ($plan->isa('Attean::Plan::Quad')) {
-		if ($wac->checkAccess($plan->graph)) {
+		if ($model->wac->checkAccess($plan->graph)) {
 		  push(@checkedplans, $plan);
 		} else {
 		  push(@checkedplans, Web::Access::Control::Plan::RestrictedQuad->new);
@@ -26,4 +26,5 @@ around 'access_plans' => sub {
 	 return @checkedplans;
   }
 }
-		  
+
+1;
